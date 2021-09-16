@@ -21,7 +21,7 @@ func (listPorts SportContainer) ListPort() string {
 				resultPort = append(resultPort, fmt.Sprintf("%v/%v ", items.PrivatePort, items.Type))
 			}
 		}
-		return strings.Join(resultPort, " ")
+		return strings.Join(resultPort, "")
 	}
 	return ""
 }
@@ -40,6 +40,6 @@ func main() {
 
 	for _, container := range containers {
 		listPorts := SportContainer(container.Ports)
-		fmt.Printf("%s %s %s %s\n", container.ID[:10], container.Image, listPorts.ListPort(), container.Status)
+		fmt.Printf("%s %s %s %s %s\n", container.ID[:10], container.Names[0][1:], container.Image, listPorts.ListPort(), container.Status)
 	}
 }
