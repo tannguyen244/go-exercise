@@ -16,11 +16,11 @@ type ListPermanent []Permanent
 type ListContract []Contract
 
 func (s ListPermanent) Clone() iStaff {
-	return &s
+	return s
 }
 
 func (s ListContract) Clone() iStaff {
-	return &s
+	return s
 }
 
 func (s ListPermanent) SalaryStaff() int {
